@@ -9,8 +9,10 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { SleepContext } from '../Context/SleepContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 const StruggleDuration = () => {
+  const navigate = useNavigate();
   const { handleStruggleDuration } = useContext(SleepContext);
   const [duration, setDuration] = useState('');
   const toast = useToast();
@@ -24,6 +26,7 @@ const StruggleDuration = () => {
       return;
     }
     handleStruggleDuration(duration);
+    navigate('/bedtime');
   };
 
   return (

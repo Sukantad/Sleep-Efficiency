@@ -7,14 +7,25 @@ function SleepContextProvider({ children }) {
   var userData = {};
   const onSubmit = (nickname, password) => {
     userData.nickname = nickname;
-    userData.password = [password];
+    userData.password = password;
   };
   const handleStruggleDuration = (dur) => {
-    console.log(dur);
+    userData.struggleDuration = dur;
   };
 
+  function bedTimeHandler(sleepTime) {
+    userData.sleepTime = sleepTime;
+  }
+
   return (
-    <SleepContext.Provider value={{ onSubmit, handleStruggleDuration }}>
+    <SleepContext.Provider
+      value={{
+        onSubmit,
+        handleStruggleDuration,
+        handleStruggleDuration,
+        bedTimeHandler,
+      }}
+    >
       {children}
     </SleepContext.Provider>
   );
