@@ -7,6 +7,7 @@ const router = express();
 
 router.post("/sleep-data", async (req, res) => {
   const { nickname, password, sleepTime, wakeTime, hoursSlept } = req.body;
+
   try {
     const existingSleepData = await SleepData.findOne({ nickname });
     if (existingSleepData) {
@@ -30,8 +31,9 @@ router.post("/sleep-data", async (req, res) => {
 
 // --------------- If user is exists then calculate their sleep efficiency -----------------
 
-router.get("/sleep-efficiency/:nickname/:password", async (req, res) => {
-  const { nickname, password } = req.params;
+router.get("/sleep-efficiency/:nickname", async (req, res) => {
+  const { nickname } = req.params;
+  const { password } = req.body;
   try {
     const sleepData = await SleepData.findOne({ nickname });
     if (!sleepData) {
