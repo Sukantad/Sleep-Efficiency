@@ -27,7 +27,7 @@ function SleepContextProvider({ children }) {
 
     try {
       const res = await axios.post(
-        "https://gray-rich-centipede.cyclic.app/sleep-data",
+        "https://sleep-efficiency.cyclic.app/sleep-data",
         userData
       );
       setsleepEfficiency(res?.data);
