@@ -27,12 +27,12 @@ function SleepContextProvider({ children }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/sleep-data",
+        "https://gray-rich-centipede.cyclic.app/sleep-data",
         userData
       );
       setsleepEfficiency(res?.data);
     } catch (error) {
-      setsleepEfficiency(error?.response.data.error);
+      setsleepEfficiency(error?.response?.data.error);
       console.log(error);
     }
   }
