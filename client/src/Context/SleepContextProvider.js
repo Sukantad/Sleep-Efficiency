@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode } from "react";
-  import axios from 'axios'
+import axios from "axios";
 
 export const SleepContext = createContext();
 
@@ -20,12 +20,22 @@ function SleepContextProvider({ children }) {
   function handleWakeup(wakeTime) {
     userData.wakeTime = wakeTime;
   }
-
+  let nickname = "";
   async function handleDuration(hoursSlept) {
     userData.hoursSlept = hoursSlept;
-    const res = await axios.post("http://localhost:5000/sleep-data", userData);
-    console.log(res.data.efficiency, "res  ");
-    setsleepEfficiency(res?.data.efficiency);
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/sleep-data",
+        userData
+      );
+      nickname = userData.nickname;
+      console.log(res.data.efficiency, "res");
+
+      console.log(nickname, "ng");
+      setsleepEfficiency(res?.data.efficiency);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -36,6 +46,7 @@ function SleepContextProvider({ children }) {
         bedTimeHandler,
         handleWakeup,
         handleDuration,
+        nickname
       }}
     >
       {children}
