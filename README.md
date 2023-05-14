@@ -29,19 +29,19 @@ on that itself I am updating and storing
 
 ## Screenshots
 ### Screen 1 
-<img src="./readmeimages/screen1.jpg"/>
+<img width="35%" margin='auto' src="./readmeimages/screen1.jpg"/>
 
 ### Screen 2 
-<img src="./readmeimages/screen2.jpg"/>
+<img width="35%" src="./readmeimages/screen2.jpg"/>
 
 ### Screen 3 
-<img src="./readmeimages/screen3.jpg"/>
+<img  width="35%" src="./readmeimages/screen3.jpg"/>
 
 ### Screen 4 
-<img src="./readmeimages/screen4.jpg"/>
+<img width="35%" src="./readmeimages/screen4.jpg"/>
 
 ### Screen 5 
-<img src="./readmeimages/screen5.jpg"/> 
+<img width="35%" src="./readmeimages/screen5.jpg"/> 
 
 
 
