@@ -16,7 +16,9 @@ function SleepContextProvider({ children }) {
   function bedTimeHandler(sleepTime) {
     userData.sleepTime = sleepTime;
   }
-
+  function handleWakeup(wakeTime) {
+    userData.wakeTime = wakeTime;
+  }
   return (
     <SleepContext.Provider
       value={{
@@ -24,6 +26,7 @@ function SleepContextProvider({ children }) {
         handleStruggleDuration,
         handleStruggleDuration,
         bedTimeHandler,
+        handleWakeup,
       }}
     >
       {children}
