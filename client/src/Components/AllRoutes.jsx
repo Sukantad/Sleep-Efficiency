@@ -6,6 +6,7 @@ import BedtimeScreen from './BedtimeScreen';
 import WakeupScreen from './WakeupScreen';
 import SleepDurationScreen from './SleepDurationScreen';
 import SleepEfficiencyScreen from './SleepEfficiencyScreen';
+import NotFound from './NotFound';
 
 
 
@@ -20,6 +21,7 @@ function AllRoutes() {
                 <Route path='/wakeup' element={<WakeupScreen />}></Route>
                 <Route path="/sleepduration" element={<SleepDurationScreen />} />
                 <Route path="/sleepefficiency" element={<SleepEfficiencyScreen />} />
+                <Route path='*' element={<NotFound/>}></Route>
             </Routes>
         </div>
     );
