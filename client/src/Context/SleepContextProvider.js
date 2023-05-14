@@ -1,4 +1,5 @@
 import React, { createContext, useState, ReactNode } from "react";
+  import axios from 'axios'
 
 export const SleepContext = createContext();
 
@@ -19,14 +20,22 @@ function SleepContextProvider({ children }) {
   function handleWakeup(wakeTime) {
     userData.wakeTime = wakeTime;
   }
+
+  async function handleDuration(hoursSlept) {
+    userData.hoursSlept = hoursSlept;
+    const res = await axios.post("http://localhost:5000/sleep-data", userData);
+    console.log(res.data.efficiency, "res  ");
+    setsleepEfficiency(res?.data.efficiency);
+  }
+
   return (
     <SleepContext.Provider
       value={{
         onSubmit,
         handleStruggleDuration,
-        handleStruggleDuration,
         bedTimeHandler,
         handleWakeup,
+        handleDuration,
       }}
     >
       {children}
