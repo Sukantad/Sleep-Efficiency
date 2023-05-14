@@ -6,6 +6,7 @@ const sleepDataSchema = new mongoose.Schema({
   sleepTime: String,
   wakeTime: String,
   hoursSlept: Number,
+  struggleDuration:String
 });
 
 const SleepData = mongoose.model("SleepData", sleepDataSchema);

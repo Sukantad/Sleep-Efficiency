@@ -6,7 +6,14 @@ const router = express();
 // ----------- First here I store nick name with their data -------------
 
 router.post("/sleep-data", async (req, res) => {
-  const { nickname, password, sleepTime, wakeTime, hoursSlept } = req.body;
+  const {
+    nickname,
+    password,
+    struggleDuration,
+    sleepTime,
+    wakeTime,
+    hoursSlept,
+  } = req.body;
 
   try {
     const existingSleepData = await SleepData.findOne({ nickname });
@@ -20,6 +27,7 @@ router.post("/sleep-data", async (req, res) => {
       sleepTime,
       wakeTime,
       hoursSlept,
+      struggleDuration,
     });
     await newSleepData.save();
     res.status(200).json({ message: "Signup successfully" });
@@ -31,9 +39,8 @@ router.post("/sleep-data", async (req, res) => {
 
 // --------------- If user is exists then calculate their sleep efficiency -----------------
 
-router.get("/sleep-efficiency/:nickname", async (req, res) => {
-  const { nickname } = req.params;
-  const { password } = req.body;
+router.get("/sleep-efficiency/:nickname/:password", async (req, res) => {
+  const { nickname, password } = req.params;
   try {
     const sleepData = await SleepData.findOne({ nickname });
     if (!sleepData) {

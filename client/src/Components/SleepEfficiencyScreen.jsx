@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
     ChakraProvider,
     Box,
@@ -10,15 +10,29 @@ import {
     VStack,
     HStack
 } from '@chakra-ui/react';
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { SleepContext } from '../Context/SleepContextProvider';
 function SleepEfficiencyScreen(props) {
     const navigate = useNavigate();
-    const { sleepEfficiency, nickname } = useContext(SleepContext);
+    const [sleepEfficiency, setsleepEfficiency] = useState('Please Wait');
 
-    useEffect(()=>{
+    const { nickname, password } = useContext(SleepContext);
+    console.log(nickname[0].nickname, "dd", password)
+    const FetchData = async () => {
+        try {
+            const res = await axios.get(`http://localhost:5000/sleep-efficiency/${nickname[0].nickname}/${nickname[1].password}`)
+            setsleepEfficiency(res.data.efficiency)
+        } catch (error) {
+            console.log(error);
+        }
 
-    },[])
+
+    }
+
+    useEffect(() => {
+        FetchData()
+    }, [])
     const onRestart = () => {
         navigate('/bedtime');
     }

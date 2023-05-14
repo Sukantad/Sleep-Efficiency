@@ -4,7 +4,7 @@ import axios from "axios";
 export const SleepContext = createContext();
 
 function SleepContextProvider({ children }) {
-  const [sleepEfficiency, setsleepEfficiency] = useState();
+  const [nickname, setNickname] = useState();
   var userData = {};
   const onSubmit = (nickname, password) => {
     userData.nickname = nickname;
@@ -20,19 +20,23 @@ function SleepContextProvider({ children }) {
   function handleWakeup(wakeTime) {
     userData.wakeTime = wakeTime;
   }
-  let nickname = "";
+
+  let password = "123456";
   async function handleDuration(hoursSlept) {
     userData.hoursSlept = hoursSlept;
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/sleep-data",
-        userData
-      );
-      nickname = userData.nickname;
-      console.log(res.data.efficiency, "res");
+    setNickname([
+      { nickname: userData.nickname },
+      {
+        password: userData.password,
+      },
+    ]);
 
-      console.log(nickname, "ng");
-      setsleepEfficiency(res?.data.efficiency);
+    try {
+      await axios.post("http://localhost:5000/sleep-data", userData);
+
+      //  console.log(res.data.efficiency, "res");
+
+      // setsleepEfficiency(res?.data.efficiency);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +50,8 @@ function SleepContextProvider({ children }) {
         bedTimeHandler,
         handleWakeup,
         handleDuration,
-        nickname
+        nickname,
+        password,
       }}
     >
       {children}
