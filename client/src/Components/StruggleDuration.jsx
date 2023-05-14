@@ -45,7 +45,7 @@ const StruggleDuration = () => {
           <Button
             size="lg"
             variant={duration === 'lessThanOneWeek' ? 'solid' : 'outline'}
-            colorScheme={duration === 'lessThanOneWeek' ? 'blue' : undefined}
+            colorScheme={duration === 'lessThanOneWeek' ? 'green' : undefined}
             onClick={() => setDuration('lessThanOneWeek')}
             _hover={{ bg: useColorModeValue('blue.200', 'blue.700') }}
             _active={{ bg: useColorModeValue('blue.300', 'blue.800') }}
@@ -60,7 +60,7 @@ const StruggleDuration = () => {
           <Button
             size="lg"
             variant={duration === 'oneToFourWeeks' ? 'solid' : 'outline'}
-            colorScheme={duration === 'oneToFourWeeks' ? 'blue' : undefined}
+            colorScheme={duration === 'oneToFourWeeks' ? 'green' : undefined}
             onClick={() => setDuration('oneToFourWeeks')}
             _hover={{ bg: useColorModeValue('blue.200', 'blue.700') }}
             _active={{ bg: useColorModeValue('blue.300', 'blue.800') }}
@@ -75,7 +75,7 @@ const StruggleDuration = () => {
           <Button
             size="lg"
             variant={duration === 'moreThanFourWeeks' ? 'solid' : 'outline'}
-            colorScheme={duration === 'moreThanFourWeeks' ? 'blue' : undefined}
+            colorScheme={duration === 'moreThanFourWeeks' ? 'green' : undefined}
             onClick={() => setDuration('moreThanFourWeeks')}
             _hover={{ bg: useColorModeValue('blue.200', 'blue.700') }}
             _active={{ bg: useColorModeValue('blue.300', 'blue.800') }}

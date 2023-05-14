@@ -8,37 +8,47 @@ import {
     Spacer,
     Button,
     VStack,
-    HStack
+    HStack,
+    Spinner,
+    Center
 } from '@chakra-ui/react';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SleepContext } from '../Context/SleepContextProvider';
 function SleepEfficiencyScreen(props) {
     const navigate = useNavigate();
-    const [sleepEfficiency, setsleepEfficiency] = useState('Please Wait');
-
-    const { nickname, password } = useContext(SleepContext);
-    console.log(nickname[0].nickname, "dd", password)
-    const FetchData = async () => {
-        try {
-            const res = await axios.get(`http://localhost:5000/sleep-efficiency/${nickname[0].nickname}/${nickname[1].password}`)
-            setsleepEfficiency(res.data.efficiency)
-        } catch (error) {
-            console.log(error);
-        }
+    const { sleepEfficiency } = useContext(SleepContext);
 
 
+    if (!sleepEfficiency) {
+        return (
+            <Box mt={'50%'} ml={'40%'}>
+                <Spinner
+                    thickness='14px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='blue.500'
+
+                    size={'xl'}
+                />
+
+            </Box>
+        )
+    } else if (sleepEfficiency == "Incorrect password") {
+        return (
+            <Box w='50%' m='auto' mt={'100px'}>
+                <Text textAlign={'center'} fontWeight={'bold'}>  Wrong Password</Text>
+                <Center mt={'50px'}> <Link to='/'> <Button colorScheme="blue">Restart</Button> </Link> </Center>
+            </Box>
+        )
     }
 
-    useEffect(() => {
-        FetchData()
-    }, [])
     const onRestart = () => {
-        navigate('/bedtime');
+        navigate('/');
     }
 
 
-    console.log(nickname, "nk")
+
     return (
         <ChakraProvider>
             <Box p={4}>
@@ -49,7 +59,7 @@ function SleepEfficiencyScreen(props) {
                     <Box>
                         <Heading as="h2" size="lg" mb={4}>Sleep Efficiency</Heading>
                         <Box bg="gray.50" p={6} rounded="lg">
-                            <Text fontSize="6xl" fontWeight="bold" mb={2} textAlign="center">{sleepEfficiency}%</Text>
+                            <Text fontSize="6xl" fontWeight="bold" mb={2} textAlign="center">{sleepEfficiency?.efficiency}%</Text>
                             <Text fontSize="md" fontWeight="medium" textAlign="center">You slept efficiently last night</Text>
                         </Box>
                     </Box>
