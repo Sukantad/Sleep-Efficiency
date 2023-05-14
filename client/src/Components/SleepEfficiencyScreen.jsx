@@ -68,7 +68,7 @@ function SleepEfficiencyScreen(props) {
                         <VStack spacing={4} bg="gray.50" p={6} rounded="lg">
                             <Text fontSize="md" fontWeight="medium">- Stick to a consistent sleep schedule</Text>
                             <Text fontSize="md" fontWeight="medium">- Create a relaxing bedtime routine</Text>
-                            <Text fontSize="md" fontWeight="medium">- Avoid caffeine and alcohol before bed</Text>
+
                             <Text fontSize="md" fontWeight="medium">- Keep your bedroom cool and dark</Text>
                         </VStack>
                     </Box>
