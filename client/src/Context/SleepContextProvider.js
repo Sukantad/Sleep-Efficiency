@@ -9,9 +9,12 @@ function SleepContextProvider({ children }) {
     userData.nickname = nickname;
     userData.password = [password];
   };
+  const handleStruggleDuration = (dur) => {
+    console.log(dur);
+  };
 
   return (
-    <SleepContext.Provider value={{ onSubmit }}>
+    <SleepContext.Provider value={{ onSubmit, handleStruggleDuration }}>
       {children}
     </SleepContext.Provider>
   );
