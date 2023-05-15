@@ -32,7 +32,7 @@ function SleepDurationScreen() {
       <Flex direction="column" alignItems="center" mt='70px'   >
 
         <Heading as="h2" mb='100px' fontSize="xl" textAlign="center" >
-          How many hours do you typically sleep at night?
+          OK. How many hours sleep do you get in a  typical  night?
         </Heading>
 
         <form onSubmit={handleSubmit} style={{ width: '100%' }}>

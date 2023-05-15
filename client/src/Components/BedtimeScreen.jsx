@@ -39,7 +39,7 @@ function BedtimeScreen() {
                 h={'80vh'}
             >
                 <Box mb={'60px'} fontWeight="bold" fontSize="lg">
-                    What time do you usually go to bed?
+                    What time do you usually go to bed for sleep?
                 </Box>
                 <form onSubmit={handleSubmit}>
                     <FormControl id="bedtime" mb={6}>

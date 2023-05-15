@@ -28,7 +28,7 @@ function WakeupScreen() {
         <Box p={4} h="100vh" bg="gray.50" display="flex" alignItems="center" justifyContent="center">
             <Flex direction="column" h={'70vh'} w="100%" maxW="360px">
                 <Box mb='80px' fontWeight="bold" fontSize="xl" textAlign="center" >
-                    When do you typically wake up?</Box>
+                 What time do you get out of bed to start your day?</Box>
 
                 <Box mb={8}>
 
