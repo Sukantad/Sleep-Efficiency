@@ -19,6 +19,7 @@ Express
 ```
 - If you are first time calculate your sleep efficiency then It will create a new account 
 - If you second time login then It will update your data
+- User Password are stored in after hashed  
 ```
 
 ## Backend API
